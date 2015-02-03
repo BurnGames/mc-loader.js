@@ -45,12 +45,14 @@ ChunkIoService.prototype.read = function (chunk, callback) {
             sections[y] = new ChunkSection(types, skyLight, blockLight);
         }
         chunk.initializeSections(sections);
-        chunk.populated = levelTag.TerrainPopulated == 1;
-        chunk.biomes = levelTag.Biomes;
+        chunk.populated = !!levelTag.TerrainPopulated;
+        if(levelTag.Biomes) {
+            chunk.biomes = levelTag.Biomes;
+        }
         if (levelTag.HeightMap) {
             chunk.heightMap = levelTag.HeightMap;
         } else {
-            // chunk.automaticHeightMap();
+            chunk.automaticHeightMap();
         }
         callback(undefined, chunk);
     });
