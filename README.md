@@ -12,3 +12,4 @@ To Do
 - More functions to allow easier modifications of blocks (getting relative blocks and such)
 - An object containing names and ids of all the items/blocks
 - Allow getting all of the chunks currently loaded in a world
+- Saving
