@@ -40,7 +40,7 @@ ChunkIoService.prototype.read = function (chunk, callback) {
 
             var types = [];
             for (var j = 0; j < rawTypes.length; j++) {
-                types[j] = types[i] = (((extTypes == null ? 0 : extTypes.get(i)) << 12) | ((rawTypes[i] & 0xff) << 4) | data.get(i));
+                types[j] = (((extTypes == null ? 0 : extTypes.get(j)) << 12) | ((rawTypes[j] & 0xff) << 4) | data.get(j));
             }
             sections[y] = new ChunkSection(types, skyLight, blockLight);
         }
