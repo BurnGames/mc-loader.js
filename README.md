@@ -1,3 +1,5 @@
+<div style="text-align:center"><img src ="http://i.imgur.com/xsorYFK.png" /></div>
+
 Node Minecraft World Loader
 ===
 This project can be used to load a world's data.
