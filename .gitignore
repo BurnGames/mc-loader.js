@@ -1,4 +1,3 @@
 *.iml
-*.test.js
 .idea
 node_modules

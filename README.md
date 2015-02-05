@@ -13,3 +13,4 @@ To Do
 - An object containing names and ids of all the items/blocks
 - Allow getting all of the chunks currently loaded in a world
 - Saving
+- nodeunit tests (will we need to supply a MC world folder for this?)
