@@ -1,7 +1,6 @@
 var RandomAccessFile = require('../utils/RandomAccessFile');
 var fs = require('fs');
 var zlib = require('zlib');
-var gzip = require('gzip-js');
 
 const SECTOR_BYTES = 4096;
 const SECTOR_INTS = SECTOR_BYTES / 4;

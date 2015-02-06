@@ -2,7 +2,6 @@
   "name": "application-name",
   "version": "0.0.1",
   "dependencies": {
-    "gzip-js": "0.3.2",
-    "deflate-js": "0.2.3"
+    "gzip-js": "0.3.2"
   }
 }

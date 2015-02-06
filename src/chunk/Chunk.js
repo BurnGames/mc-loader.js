@@ -69,7 +69,7 @@ Chunk.prototype.setType = function (x, z, y, type) {
     // todo maybe create new tile entity
 };
 
-Chunk.prototype.setMetaData = function (x, z, y, data) {
+Chunk.prototype.setData = function (x, z, y, data) {
     if (data < 0 || data >= 16) {
         throw new Error('Out of range');
     }
