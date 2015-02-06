@@ -14,8 +14,7 @@
     'use strict';
 
     var nbt = this;
-    var zlib = require('zlib');
-    var gzip = require('gzip-js');
+    var zlib = require('./node-zlib');
     var Int64 = require('./Int64');
 
     nbt.tagTypes = {
@@ -156,7 +155,7 @@
 
     this.parse = function (data) {
         if (hasGzipHeader(data)) {
-            return parseUncompressed(gzip.unzip(data));
+            return parseUncompressed(zlib.gunzipSync(data));
         } else {
             return parseUncompressed(data);
         }

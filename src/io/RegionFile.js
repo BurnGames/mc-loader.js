@@ -1,6 +1,6 @@
 var RandomAccessFile = require('../utils/RandomAccessFile');
 var fs = require('fs');
-var zlib = require('zlib');
+var zlib = require('../utils/node-zlib');
 
 const SECTOR_BYTES = 4096;
 const SECTOR_INTS = SECTOR_BYTES / 4;
@@ -12,6 +12,8 @@ function RegionFile(path) {
     this.sizeDelta = 0;
     if (fs.existsSync(path)) {
         this.lastModified = new Date(fs.statSync(path).mtime).getTime();
+    } else {
+        return;
     }
     var file = new RandomAccessFile(path);
     file.seek(file.size);
@@ -62,7 +64,7 @@ function RegionFile(path) {
     this.file = file;
 }
 
-RegionFile.prototype.getChunkDataInputStream = function (x, z, callback) {
+RegionFile.prototype.getChunkDataInputStream = function (x, z) {
     if (this.outOfBounds(x, z)) {
         throw new Error('Out of bounds');
     }
@@ -88,11 +90,11 @@ RegionFile.prototype.getChunkDataInputStream = function (x, z, callback) {
     if (version == 1) {
         // gzip
         var buffer = this.file.read(length - 1);
-        zlib.gunzip(buffer, callback);
+        return zlib.gunzipSync(buffer);
     } else if (version == 2) {
         // deflate
         buffer = this.file.read(length - 1);
-        zlib.inflate(buffer, callback);
+        return zlib.inflateSync(buffer);
     } else {
         throw new Error('Invalid version "' + version + '"');
     }

@@ -15,9 +15,8 @@ RegionFileCache.prototype.getRegionFile = function (basePath, chunkX, chunkZ) {
     if (ref) {
         return ref;
     }
-    if (!fs.existsSync(regionDir)) {
-        fs.mkdirSync(regionDir);
-    }
+    var time = Date.now();
+    console.log('Took ' + (Date.now() - time) + ' to check if the directory was created');
     if (this.cache.length >= 256) {
         this.clear();
     }
