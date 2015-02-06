@@ -55,7 +55,7 @@ function RegionFile(path) {
                 this.sectorFree.splice(startSector + sectorNum, 0, false);
             }
         } else {
-            console.warn('Region "' + path + '" offsets[' + i + '] = ' + fileOffset + ' -> ' + startSector + ',' + numSectors + ' does not fit')
+            // console.warn('Region "' + path + '" offsets[' + i + '] = ' + fileOffset + ' -> ' + startSector + ',' + numSectors + ' does not fit')
         }
     }
     for (i = 0; i < SECTOR_INTS; ++i) {
